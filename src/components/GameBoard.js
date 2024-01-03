@@ -2,17 +2,18 @@ import {useState} from "react";
 
 const initialGameBoard = [[null, null, null], [null, null, null], [null, null, null]]
 
-export default function GameBoard() {
+export default function GameBoard({ onSelectField, activePlayerSymbol }) {
     const [gameBoard, setGameBoard] = useState(initialGameBoard)
 
     function handleSelectField(rowIndex, colIndex) {
         setGameBoard((prevGameBoard) => {
             const updatedBoard = [...prevGameBoard.map(innerArr => [...innerArr])]
 
-            updatedBoard[rowIndex][colIndex] = "X"
+            updatedBoard[rowIndex][colIndex] = activePlayerSymbol
             return updatedBoard
         })
 
+        onSelectField()
     }
 
 
