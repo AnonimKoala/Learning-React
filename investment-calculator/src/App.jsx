@@ -16,7 +16,7 @@ function App() {
         setInputsValue(prevState => {
             return {
                 ...prevState,
-                [symbol]: newInputValue
+                [symbol]: parseInt(newInputValue)
             }
         })
     }
