@@ -5,8 +5,9 @@ export default function Input({placeholder, onChangeInputValue, initialValue, sy
     const [inputValue, setInputValue] = useState(initialValue);
 
     function handleChange(e) {
-        setInputValue(e.target.value)
-        onChangeInputValue(symbol, inputValue)
+        const newValue = e.target.value
+        setInputValue(newValue)
+        onChangeInputValue(symbol, newValue)
     }
 
     return (
