@@ -11,6 +11,7 @@ function App() {
         duration: 10
     })
 
+    const inputIsValid = inputsValue.duration >= 1
 
     function handleInputValueChange(symbol, newInputValue) {
         setInputsValue(prevState => {
@@ -51,7 +52,8 @@ function App() {
             </div>
         </div>
 
-        <Table dataObj={inputsValue}/>
+        {inputIsValid && <Table dataObj={inputsValue}/>}
+        {!inputIsValid && <p className="center">Duration must be greater than 0.</p>}
 
     </main>);
 }
